@@ -6,5 +6,4 @@
 
 (defn render-kit-display [selected-kit]
   [:div
-   (map #(render-single-kit-element %) (:kit selected-kit))])
-
+   (map render-single-kit-element (:kit selected-kit))])

@@ -6,21 +6,21 @@
 (defn kit-selector-option
   [kit]
   (let [name (:name kit)]
-   [:option {:value name
-             :key (keyword name)} name]))
+    [:option {:value name
+              :key (keyword name)} name]))
 
 (defn get-kit-by-name
   [kit-name kits]
   (some #(when (= (:name %) kit-name) %) kits))
 
 (defn render-kit-selector [kits default-kit]
-   [:form
-    [:div.row
-     [:div
-      [:div.six.columns
-       [:label {:for kit-selector-title}]
-       [:select.u-max-full-width {:id kit-selector-title
-                                  :defaultValue (:name default-kit)
-                                  :on-change #(rf/dispatch [:set-selected-kit
-                                                            (get-kit-by-name (-> % .-target .-value) kits)])}
-        (map #(kit-selector-option %) kits)]]]]])
+  [:form
+   [:div.row
+    [:div
+     [:div.six.columns
+      [:label {:for kit-selector-title}]
+      [:select.u-max-full-width {:id kit-selector-title
+                                 :defaultValue (:name default-kit)
+                                 :on-change #(rf/dispatch [:set-selected-kit
+                                                           (get-kit-by-name (-> % .-target .-value) kits)])}
+       (map kit-selector-option kits)]]]]])
