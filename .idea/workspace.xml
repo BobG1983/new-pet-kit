@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f2c85dd-f15f-4975-a001-21b5a8d45456" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/cljs/new_pet_clj/components/counter.cljs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/cljs/new_pet_clj/components/kit_display.cljs" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cljs/new_pet_clj/components/core.cljs" afterPath="$PROJECT_DIR$/src/cljs/new_pet_clj/components/core.cljs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cljs/new_pet_clj/db.cljs" afterPath="$PROJECT_DIR$/src/cljs/new_pet_clj/db.cljs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cljs/new_pet_clj/events.cljs" afterPath="$PROJECT_DIR$/src/cljs/new_pet_clj/events.cljs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cljs/new_pet_clj/subs.cljs" afterPath="$PROJECT_DIR$/src/cljs/new_pet_clj/subs.cljs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cljs/new_pet_clj/views.cljs" afterPath="$PROJECT_DIR$/src/cljs/new_pet_clj/views.cljs" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/cljs/new_pet_clj/components/kit-display.cljs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/cljs/new_pet_clj/components/kit-selector.cljs" afterPath="" />
     </list>
     <ignored path="new-pet-clj.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,21 +23,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="kit-selector.cljs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cljs/new_pet_clj/components/kit-selector.cljs">
+      <file leaf-file-name="core.cljs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cljs/new_pet_clj/components/core.cljs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.cljs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/cljs/new_pet_clj/components/core.cljs">
+      <file leaf-file-name="kit_display.cljs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cljs/new_pet_clj/components/kit_display.cljs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kit_selector.cljs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cljs/new_pet_clj/components/kit_selector.cljs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -582,14 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cljs/new_pet_clj/components/kit_display.cljs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/new_pet_clj/subs.cljs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -638,10 +634,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/cljs/new_pet_clj/components/kit-display.cljs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cljs/new_pet_clj/components/core.cljs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cljs/new_pet_clj/components/kit_display.cljs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cljs/new_pet_clj/components/kit_selector.cljs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
