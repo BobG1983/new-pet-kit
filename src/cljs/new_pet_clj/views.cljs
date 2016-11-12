@@ -2,12 +2,6 @@
     (:require [re-frame.core :as rf]
               [new-pet-clj.components.core :as comp]))
 
-
-;; Home
-(defn increment-counter
-  []
-  (rf/dispatch [:count-clicked]))
-
 (defn home-panel []
   (fn []
     [:div

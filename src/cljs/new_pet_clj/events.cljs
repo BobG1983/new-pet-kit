@@ -17,8 +17,4 @@
  (fn [db [_ selected-kit]]
    (assoc db :selected-kit selected-kit)))
 
-(rf/reg-event-db
- :count-clicked
- (fn [db [_ _]]
-   (assoc db :count (+ (:count db) 1))))
 

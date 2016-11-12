@@ -2,7 +2,6 @@
 
 (def default-db
   {:selected-kit nil
-   :count 0
    :kits '({:name "Small Dog" :kit [{:name "Spooge" :code 123456}
                                     {:name "Boobs" :code 456123}]}
            {:name "Medium Dog" :kit [{:name "Big Ol Basket" :code 897}

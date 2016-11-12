@@ -11,9 +11,5 @@
  (fn [db _] (:active-panel db)))
 
 (rf/reg-sub
- :count
- (fn [db] (:count db)))
-
-(rf/reg-sub
  :kits
  (fn [db] (:kits db)))
