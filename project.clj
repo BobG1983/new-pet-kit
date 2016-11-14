@@ -1,5 +1,6 @@
 (defproject new-pet-clj "0.1.0-SNAPSHOT"
-            :profiles {:dev {:dependencies [[binaryage/devtools "0.8.3"]]
+            :profiles {:dev {:env {:dev true}
+                             :dependencies [[binaryage/devtools "0.8.3"]]
                              :plugins [[lein-figwheel "0.5.7"]]}}
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [org.clojure/clojurescript "1.9.293"]
@@ -8,7 +9,8 @@
                            [secretary "1.2.3"]
                            [compojure "1.5.1"]
                            [yogthos/config "0.8"]
-                           [ring "1.5.0"]]
+                           [ring "1.5.0"]
+                           [environ "1.1.0"]]
             :plugins [[lein-cljsbuild "1.1.4"]]
             :min-lein-version "2.5.3"
             :source-paths ["src/clj"]
