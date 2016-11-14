@@ -1,5 +1,5 @@
 (ns new-pet-clj.handler
-  (:require [compojure.core :refer [GET defroutes context]]
+  (:require [compojure.core :refer [GET ANY defroutes context]]
             [compojure.route :refer [resources]]
             [ring.util.response :refer [resource-response]]
             [ring.middleware.reload :refer [wrap-reload]]
@@ -9,16 +9,14 @@
   (GET "/" [] (resource-response "index.html" {:root "public"}))
   (resources "/")
   (context "/api" []
-    (defroutes api-routes
-      (GET "/" request {:status 200 :body request}))))
-
-
-
-(def dev-handler (->
-                   #'routes
-                   wrap-reload))
+    (GET "/" request {:status 200 :body request}))
+  (ANY [] (resource-response "404.html" {:root "public"})))
 
 (def prod-handler routes)
+
+(def dev-handler (->
+                   #'prod-handler
+                   wrap-reload))
 
 (def handler (if DEBUG
                (dev-handler)
