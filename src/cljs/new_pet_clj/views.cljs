@@ -8,17 +8,9 @@
      (comp/kit-selector)
      (comp/kit-display)]))
 
-;; About
-(defn about-panel []
-  (fn []
-    [:div "This is the About Page."
-     [:div [:a {:href "#/"} "go to Home Page"]]]))
-
-
 ;; Main
 (defmulti panels identity)
 (defmethod panels :home-panel [] [home-panel])
-(defmethod panels :about-panel [] [about-panel])
 (defmethod panels :default [] [:div])
 
 (defn show-panel
