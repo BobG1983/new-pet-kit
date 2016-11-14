@@ -10,6 +10,7 @@
                            [compojure "1.5.1"]
                            [yogthos/config "0.8"]
                            [ring "1.5.0"]
+                           [ring/ring-defaults "0.2.1"]
                            [environ "1.1.0"]]
             :plugins [[lein-cljsbuild "1.1.4"]]
             :min-lein-version "2.5.3"
