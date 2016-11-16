@@ -1,6 +1,7 @@
 (defproject new-pet-clj "0.1.0-SNAPSHOT"
             :profiles {:dev {:env {:dev true}
-                             :dependencies [[binaryage/devtools "0.8.3"]]
+                             :dependencies [[binaryage/devtools "0.8.3"]
+                                            [figwheel-sidecar "0.5.0"]]
                              :plugins [[lein-figwheel "0.5.7"]]}}
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [org.clojure/clojurescript "1.9.293"]
@@ -14,10 +15,10 @@
                            [environ "1.1.0"]]
             :plugins [[lein-cljsbuild "1.1.4"]]
             :min-lein-version "2.5.3"
-            :source-paths ["src/clj"]
+            :source-paths ["src/clj" "scripts"]
             :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
             :figwheel {:css-dirs ["resources/public/css"]
-                       :ring-handler new-pet-clj.handler/dev-handler}
+                       :ring-handler new-pet-clj.handler/handler}
             :cljsbuild {:builds [{:id "dev"
                                   :source-paths ["src/cljs"]
                                   :figwheel     {:on-jsload "new-pet-clj.core/mount-root"}
