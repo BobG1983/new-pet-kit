@@ -2,7 +2,6 @@
   (:require [compojure.core :refer [GET defroutes context]]
             [compojure.route :refer [not-found resources]]
             [ring.util.response :refer [resource-response]]
-            [new-pet-clj.api.core :as api]
             [new-pet-clj.api.routes :refer [api-routes]]))
 
 (defroutes routes
