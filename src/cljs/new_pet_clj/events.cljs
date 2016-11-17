@@ -1,6 +1,7 @@
 (ns new-pet-clj.events
     (:require [re-frame.core :as rf]
-              [new-pet-clj.db :as db]))
+              [new-pet-clj.db :as db]
+              [new-pet-clj.comms :as c]))
 
 (rf/reg-event-db
  :initialize-db
@@ -15,6 +16,9 @@
 (rf/reg-event-db
  :set-selected-kit
  (fn [db [_ selected-kit]]
-   (assoc db :selected-kit selected-kit)))
+   (do
+     (c/create-cart selected-kit)
+     (assoc db :selected-kit selected-kit))))
+
 
 
