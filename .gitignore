@@ -9,3 +9,4 @@ resources/public/js/
 *.swp
 *.iml
 *.nrepl-port
+.lein-env
