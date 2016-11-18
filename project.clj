@@ -13,15 +13,16 @@
                            [environ "1.1.0"]
                            [org.clojure/core.async "0.2.395"]
                            [cljs-http "0.1.42"]
-                           [ring-middleware-format "0.7.0"]]
+                           [ring-transit "0.1.6"]
+                           [com.unbounce/encors "2.3.0"]]
             :plugins [[lein-cljsbuild "1.1.4"]
                       [lein-environ "1.1.0"]
                       [lein-figwheel "0.5.7"]]
             :min-lein-version "2.5.3"
-            :source-paths ["src/clj" "scripts"]
+            :source-paths ["src/clj"]
             :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
             :figwheel {:css-dirs ["resources/public/css"]
-                       :ring-handler new-pet-clj.handler/dev-handler}
+                       :ring-handler new-pet-clj.handler/handler}
             :cljsbuild {:builds [{:id "dev"
                                   :source-paths ["src/cljs"]
                                   :figwheel     {:on-jsload "new-pet-clj.core/mount-root"}
