@@ -1,4 +1,4 @@
 (ns new-pet-clj.config)
 
-(def debug?
+(def DEBUG
   ^boolean js/goog.DEBUG)

@@ -9,7 +9,7 @@
 
 
 (defn dev-setup []
-  (when config/debug?
+  (when config/DEBUG
     (enable-console-print!)
     (println "dev mode")))
 
