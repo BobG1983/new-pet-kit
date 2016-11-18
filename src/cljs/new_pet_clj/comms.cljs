@@ -3,9 +3,9 @@
   (:require [cljs-http.client :as http]
             [cljs.core.async :refer [<!]]))
 
-
-
 (defn create-cart
   [kit]
-  (go (let [response (<! (http/post "http://127.0.0.1:3449/api/echo" {:transit-params kit}))]
-        (println response))))
+  (go (let [response (<! (http/post "http://localhost:3449/api/echo"
+                                    {:transit-params kit
+                                     :with-credentials? false}))]
+        (prn (:body response)))))
