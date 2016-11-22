@@ -1,6 +1,4 @@
 (defproject new-pet-clj "0.1.0-SNAPSHOT"
-            :profiles {:dev {:env {:dev true}
-                             :dependencies [[binaryage/devtools "0.8.3"]]}}
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [org.clojure/clojurescript "1.9.293"]
                            [reagent "0.6.0"]
@@ -13,8 +11,11 @@
                            [environ "1.1.0"]
                            [org.clojure/core.async "0.2.395"]
                            [cljs-http "0.1.42"]
+                           [clj-http "2.0.1"]
                            [ring-transit "0.1.6"]
-                           [com.unbounce/encors "2.3.0"]]
+                           [com.unbounce/encors "2.3.0"]
+                           [binaryage/devtools "0.8.3"]
+                           [pradpi "0.2.2"]]
             :plugins [[lein-cljsbuild "1.1.4"]
                       [lein-environ "1.1.0"]
                       [lein-figwheel "0.5.7"]]
