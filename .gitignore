@@ -10,3 +10,4 @@ resources/public/js/
 *.iml
 *.nrepl-port
 .lein-env
+profiles.clj
