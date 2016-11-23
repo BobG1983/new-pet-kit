@@ -13,3 +13,7 @@
 (rf/reg-sub
  :kits
  (fn [db] (:kits db)))
+
+(rf/reg-sub
+  :cart
+  (fn [db] (:cart db)))

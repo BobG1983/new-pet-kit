@@ -20,5 +20,10 @@
      (c/create-cart selected-kit)
      (assoc db :selected-kit selected-kit))))
 
+(rf/reg-event-db
+  :set-cart
+  (fn [db [_ cart]]
+    (assoc db :cart cart)))
+
 
 
