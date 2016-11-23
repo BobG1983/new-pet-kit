@@ -1,7 +1,9 @@
 (ns new-pet-clj.db)
 
 (def default-db
-  {:selected-kit nil
+  {:cart nil
+   :cart-status :inactive
+   :selected-kit nil
    :kits         '({:name "Small Dog" :contents [{:name "Spooge" :code "B00QKSSGH0"}
                                                  {:name "Boobs" :code "B0155XV9KG"}]}
                    {:name "Medium Dog" :contents [{:name "Big Ol Basket" :code "B00QKSSGH0"}

@@ -33,7 +33,8 @@
         cart-id (:cart-id cart)
         price (:formatted-price (:sub-total cart))
         url (:purchase-url cart)]
-    {:cart-id cart-id :price price :url url}))
+    (do (t/debug @cart-request)
+        {:cart-id cart-id :price price :url url})))
 
 (defn create-cart
   "Given a kit creates an Amazon cart containing
@@ -51,7 +52,7 @@
   "Creates a reponse object to return to the client, including :status and :cart"
   [kit]
   (let [cart (create-cart kit)
-        status (if (nil? cart) :fail :success)]
+        status (if (nil? cart) :inactive :active)]
     {:status status :cart cart}))
 
 
