@@ -1,7 +1,7 @@
 (ns new-pet-clj.api.core
   (:require [environ.core :refer [env]]
             [pradpi.core :as p]
-            [clojure.pprint :as pp]))
+            [taoensso.timbre :as t]))
 
 (def associate-id (env :associate-id))
 (def amazon-key (env :amazon-key))
@@ -39,11 +39,19 @@
   "Given a kit creates an Amazon cart containing
   the items in the kit and returns the url to buy it."
   [kit]
-  (do (println (str "Request Body: " kit))
-      (try (->> kit
-                (:contents)
-                (map :code)
-                (asin-list->item-map)
-                (create-cart-request)
-                (build-response))
-           (catch Exception e (println e)))))
+  (try (->> (t/spy kit)
+            (:contents)
+            (map :code)
+            (asin-list->item-map)
+            (create-cart-request)
+            (build-response))
+       (catch Exception e (t/error e))))
+
+(defn create-cart-response
+  "Creates a reponse object to return to the client, including :status and :cart"
+  [kit]
+  (let [cart (create-cart kit)
+        status (if (nil? cart) :fail :success)]
+    {:status status :cart cart}))
+
+

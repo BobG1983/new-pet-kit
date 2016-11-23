@@ -19,12 +19,9 @@
                    (ANY "*" [] {:status 404})))
 
 (def api (context "/api" []
-                  (POST "/" request {:status 200
-                                     :headers {"Content-Type" "application/transit+json"}
-                                     :body (echo-handler request)})
                   (POST "/create-cart" request {:status 200
                                                 :headers {"Content-Type" "application/transit+json"}
-                                                :body (api/create-cart (:body request))})
+                                                :body (api/create-cart-response (:body request))})
                   (ANY "*" [] {:status 404})))
 
 (defroutes api-routes

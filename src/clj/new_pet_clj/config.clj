@@ -1,5 +1,6 @@
 (ns new-pet-clj.config
-  (require [environ.core :refer :all]))
+  (:require [environ.core :refer :all]
+            [taoensso.timbre :as t]))
 
 (def DEBUG (env :dev))
 
@@ -13,3 +14,8 @@
                   :require-origin? false
                   :ignore-failures? false})
 
+(defn config-logging
+  "Configured Timbre logging"
+  []
+  (let [level (if DEBUG :debug :info)]
+    (t/set-level! level)))
