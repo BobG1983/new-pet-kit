@@ -25,5 +25,10 @@
   (fn [db [_ cart]]
     (assoc db :cart cart)))
 
+(rf/reg-event-db
+  :set-cart-status
+  (fn [db [_ cart]]
+    (assoc db :cart-status cart)))
+
 
 

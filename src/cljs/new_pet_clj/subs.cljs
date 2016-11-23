@@ -17,3 +17,7 @@
 (rf/reg-sub
   :cart
   (fn [db] (:cart db)))
+
+(rf/reg-sub
+  :cart-status
+  (fn [db] (:cart-status db)))
