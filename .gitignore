@@ -11,3 +11,4 @@ resources/public/js/
 *.nrepl-port
 .lein-env
 profiles.clj
+.lein-repl-history
