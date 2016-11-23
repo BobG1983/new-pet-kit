@@ -2,11 +2,11 @@
 
 (def default-db
   {:selected-kit nil
-   :kits '({:name "Small Dog"  :kit [{:name "Spooge" :code 123456}
-                                     {:name "Boobs" :code 456123}]}
-           {:name "Medium Dog" :kit [{:name "Big Ol Basket" :code 897}
-                                     {:name "Bone" :code 123123}]}
-           {:name "Large Dog"  :kit [{:name "Life-saving Whiskey" :code 1}
-                                     {:name "Cuddles" :code 2}]}
-           {:name "Cat"        :kit [{:name "Evil" :code 394123455545}
-                                     {:name "Cheese Weasel" :code 12334}]})})
+   :kits         '({:name "Small Dog" :kit-contents [{:name "Spooge" :code "B00QKSSGH0"}
+                                                     {:name "Boobs" :code "B0155XV9KG"}]}
+                   {:name "Medium Dog" :kit-contents [{:name "Big Ol Basket" :code "B00QKSSGH0"}
+                                                      {:name "Bone" :code "B0155XV9KG"}]}
+                   {:name "Large Dog" :kit-contents [{:name "Life-saving Whiskey" :code "B00QKSSGH0"}
+                                                     {:name "Cuddles" :code "B0155XV9KG"}]}
+                   {:name "Cat" :kit-contents [{:name "Evil" :code "B00QKSSGH0"}
+                                               {:name "Cheese Weasel" :code "B0155XV9KG"}]})})
