@@ -14,7 +14,7 @@
                   :require-origin? false
                   :ignore-failures? false})
 
-(defn log-environment
+(defn log-environment []
   (when DEBUG
     (do (t/debug (str "Debug: " DEBUG))
         (t/debug (str "Amazon Key: " (env :amazon-key)))
