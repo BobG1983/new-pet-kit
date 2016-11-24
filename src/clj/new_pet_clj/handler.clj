@@ -14,10 +14,10 @@
 ;(def api-defs (if conf/DEBUG api-defaults (assoc secure-api-defaults :proxy true)))
 
 ;; Wrap handlers in appropriate defaults
-(def site  (wrap-defaults site-routes (-> site-defaults
-                                          (assoc-in [:security :ssl-redirect] true))))
-(def api   (wrap-defaults api-routes (-> api-defaults
-                                         (assoc-in [:security :ssl-redirect] true))))
+(def site (wrap-defaults site-routes (-> secure-site-defaults
+                                          (assoc :proxy true))))
+(def api (wrap-defaults api-routes api-defaults))
+
 ;; Combine handlers
 (def routes (cjr/routes api site))
 
