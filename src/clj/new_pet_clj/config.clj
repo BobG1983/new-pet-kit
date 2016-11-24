@@ -24,5 +24,4 @@
 (defn configure-logging
   "Configured Timbre logging"
   []
-  (let [level (if DEBUG :debug :info)]
-    (t/set-level! level)))
+  (t/set-level! :info))
