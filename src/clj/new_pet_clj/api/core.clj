@@ -33,14 +33,15 @@
         cart-id (:cart-id cart)
         price (:formatted-price (:sub-total cart))
         url (:purchase-url cart)]
-    (do (t/debug @cart-request)
-        {:cart-id cart-id :price price :url url})))
+    (do (t/debug "cart-request =>" @cart-request)
+        (t/spy {:cart-id cart-id :price price :url url}))))
 
 (defn create-cart
   "Given a kit creates an Amazon cart containing
   the items in the kit and returns the url to buy it."
   [kit]
-  (try (->> (t/spy kit)
+  (try (->> kit
+            (t/spy)
             (:contents)
             (map :code)
             (asin-list->item-map)
@@ -52,7 +53,7 @@
   "Creates a reponse object to return to the client, including :status and :cart"
   [kit]
   (let [cart (create-cart kit)
-        status (if (nil? cart) :inactive :active)]
+        status (if (nil? (:cart-id cart)) :inactive :active)]
     {:status status :cart cart}))
 
 
