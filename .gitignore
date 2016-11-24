@@ -8,3 +8,7 @@ resources/public/js/
 *~
 *.swp
 *.iml
+*.nrepl-port
+.lein-env
+profiles.clj
+.lein-repl-history

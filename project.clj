@@ -1,6 +1,4 @@
 (defproject new-pet-clj "0.1.0-SNAPSHOT"
-            :profiles {:dev {:dependencies [[binaryage/devtools "0.8.3"]]
-                             :plugins [[lein-figwheel "0.5.7"]]}}
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [org.clojure/clojurescript "1.9.293"]
                            [reagent "0.6.0"]
@@ -8,13 +6,25 @@
                            [secretary "1.2.3"]
                            [compojure "1.5.1"]
                            [yogthos/config "0.8"]
-                           [ring "1.5.0"]]
-            :plugins [[lein-cljsbuild "1.1.4"]]
+                           [ring "1.5.0"]
+                           [ring/ring-defaults "0.2.1"]
+                           [environ "1.1.0"]
+                           [org.clojure/core.async "0.2.395"]
+                           [cljs-http "0.1.42"]
+                           [clj-http "2.0.1"]
+                           [ring-transit "0.1.6"]
+                           [com.unbounce/encors "2.3.0"]
+                           [binaryage/devtools "0.8.3"]
+                           [pradpi "0.2.2"]
+                           [com.taoensso/timbre "4.7.4"]]
+            :plugins [[lein-cljsbuild "1.1.4"]
+                      [lein-environ "1.1.0"]
+                      [lein-figwheel "0.5.7"]]
             :min-lein-version "2.5.3"
             :source-paths ["src/clj"]
             :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
             :figwheel {:css-dirs ["resources/public/css"]
-                       :ring-handler new-pet-clj.handler/dev-handler}
+                       :ring-handler new-pet-clj.handler/handler}
             :cljsbuild {:builds [{:id "dev"
                                   :source-paths ["src/cljs"]
                                   :figwheel     {:on-jsload "new-pet-clj.core/mount-root"}

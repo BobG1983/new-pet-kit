@@ -17,10 +17,9 @@
   [:form
    [:div.row
     [:div
-     [:div.six.columns
-      [:label {:for kit-selector-title}]
-      [:select.u-max-full-width {:id kit-selector-title
-                                 :defaultValue (:name default-kit)
-                                 :on-change #(rf/dispatch [:set-selected-kit
-                                                           (get-kit-by-name (-> % .-target .-value) kits)])}
+     [:div.two.columns.inline "I'm getting a: "]
+     [:div.four.columns.inline
+      [:select {:id           kit-selector-title
+                :defaultValue (:name default-kit)
+                :on-change    #(rf/dispatch [:set-selected-kit (get-kit-by-name (-> % .-target .-value) kits)])}
        (map kit-selector-option kits)]]]]])
