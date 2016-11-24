@@ -3,7 +3,8 @@
   (:require [cljs-http.client :as http]
             [cljs.core.async :refer [<!]]
             [new-pet-clj.config :as conf]
-            [re-frame.core :as rf]))
+            [re-frame.core :as rf]
+            [taoensso.timbre :as t]))
 
 (def url (if conf/DEBUG
            "http://localhost:3449/api/"
@@ -12,10 +13,11 @@
 (defn create-cart
   [kit]
   (do (rf/dispatch [:set-cart-status :loading])
+      (rf/dispatch [:set-cart {}])
       (go (let [endpoint (str url "create-cart")
                 response (<! (http/post endpoint {:transit-params kit
                                                   :with-credentials? false}))
-                cart (:cart (:body response))
-                cart-status (:status (:body response))]
+                cart (or (:cart (:body response)) {})
+                cart-status (or (:status (:body response)) :inactive)]
             (do (rf/dispatch [:set-cart cart])
                 (rf/dispatch [:set-cart-status cart-status]))))))

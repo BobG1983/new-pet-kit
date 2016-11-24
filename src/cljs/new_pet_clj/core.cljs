@@ -18,7 +18,7 @@
                   (.getElementById js/document "app")))
 
 (defn ^:export init []
-  (conf/config-logging)
+  (conf/configure-logging)
   (routes/app-routes)
   (re-frame/dispatch-sync [:initialize-db])
   (dev-setup)

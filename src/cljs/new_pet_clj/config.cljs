@@ -4,7 +4,7 @@
 (def DEBUG
   ^boolean js/goog.DEBUG)
 
-(defn config-logging
+(defn configure-logging
   "Configured Timbre logging"
   []
   (let [level (if DEBUG :debug :info)]
