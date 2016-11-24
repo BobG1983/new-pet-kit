@@ -30,4 +30,5 @@
                          (wrap-reload)))
 
 ;; Final handler
-(def handler (if conf/DEBUG (dev-handler) (prod-handler)))
+(def handler (do (conf/configure-logging)
+                 (if conf/DEBUG (dev-handler) (prod-handler))))

@@ -7,5 +7,4 @@
 
 (defn -main [& args]
   (let [port (Integer/parseInt (or (env :port) "3000"))]
-    (do (conf/config-logging)
-        (run-jetty handler {:port port :join? false}))))
+    (run-jetty handler {:port port :join? false})))

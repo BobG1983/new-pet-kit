@@ -2,7 +2,7 @@
   (:require [environ.core :refer :all]
             [taoensso.timbre :as t]))
 
-(def DEBUG (env :dev))
+(def DEBUG (= (env :dev) "true"))
 
 (def CORS_POLICY {:allowed-origins :match-origin
                   :allowed-methods #{:get :post}
@@ -14,7 +14,7 @@
                   :require-origin? false
                   :ignore-failures? false})
 
-(defn config-logging
+(defn configure-logging
   "Configured Timbre logging"
   []
   (let [level (if DEBUG :debug :info)]
