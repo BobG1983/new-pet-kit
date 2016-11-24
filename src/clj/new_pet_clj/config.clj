@@ -14,6 +14,13 @@
                   :require-origin? false
                   :ignore-failures? false})
 
+(defn log-environment
+  (when DEBUG
+    (do (t/debug (str "Debug: " DEBUG))
+        (t/debug (str "Amazon Key: " (env :amazon-key)))
+        (t/debug (str "Secret Key: " (env :secret-key)))
+        (t/debug (str "Associate ID: " (env :associate-id))))))
+
 (defn configure-logging
   "Configured Timbre logging"
   []

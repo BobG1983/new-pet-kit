@@ -31,4 +31,5 @@
 
 ;; Final handler
 (def handler (do (conf/configure-logging)
+                 (conf/log-environment)
                  (if conf/DEBUG (dev-handler) (prod-handler))))
