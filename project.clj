@@ -8,6 +8,7 @@
                            [yogthos/config "0.8"]
                            [ring "1.5.0"]
                            [ring/ring-defaults "0.2.1"]
+                           [http-kit "2.2.0"]
                            [environ "1.1.0"]
                            [org.clojure/core.async "0.2.395"]
                            [cljs-http "0.1.42"]
