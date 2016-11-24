@@ -1,4 +1,4 @@
-(defproject new-pet-clj "0.3.4"
+(defproject new-pet-clj "0.3.5"
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [org.clojure/clojurescript "1.9.293"]
                            [reagent "0.6.0"]
@@ -24,7 +24,7 @@
             :source-paths ["src/clj"]
             :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
             :figwheel {:css-dirs ["resources/public/css"]
-                       :ring-handler new-pet-clj.handler/handler}
+                       :ring-handler new-pet-clj.handler/dev-handler}
             :profiles {:uberjar {:aot :all}}
             :cljsbuild {:builds [{:id "dev"
                                   :source-paths ["src/cljs"]
