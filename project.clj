@@ -26,6 +26,7 @@
             :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
             :figwheel {:css-dirs ["resources/public/css"]
                        :ring-handler new-pet-clj.handler/handler}
+            :profiles {:uberjar {:aot :all}}
             :cljsbuild {:builds [{:id "dev"
                                   :source-paths ["src/cljs"]
                                   :figwheel     {:on-jsload "new-pet-clj.core/mount-root"}
