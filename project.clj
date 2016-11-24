@@ -5,7 +5,6 @@
                            [re-frame "0.8.0"]
                            [secretary "1.2.3"]
                            [compojure "1.5.1"]
-                           [yogthos/config "0.8"]
                            [ring "1.5.0"]
                            [ring/ring-defaults "0.2.1"]
                            [http-kit "2.2.0"]
