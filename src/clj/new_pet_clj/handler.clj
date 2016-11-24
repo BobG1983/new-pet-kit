@@ -10,8 +10,7 @@
             [taoensso.timbre :as t]))
 
 ;; Combine routes
-;; Enable proxy for Heroku and disable CSRF because we don't authenticate and users can't actually do
-;; anything damaging on the site and it's a pain.
+;; TODO: CSRF for the site but not the API.  It's not necessary due to site limitations but...
 (def routes (wrap-defaults (cjr/routes api-routes site-routes)
                            (t/spy (if conf/DEBUG
                                       (-> site-defaults
