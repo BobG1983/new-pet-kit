@@ -19,6 +19,7 @@
 
 (defn ^:export init []
   (conf/configure-logging)
+  (conf/log-environment)
   (routes/app-routes)
   (re-frame/dispatch-sync [:initialize-db])
   (dev-setup)

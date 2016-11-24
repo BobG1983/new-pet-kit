@@ -4,6 +4,10 @@
 (def DEBUG
   ^boolean js/goog.DEBUG)
 
+(defn log-environment []
+  (when DEBUG
+    (t/debug (str "Debug: " DEBUG))))
+
 (defn configure-logging
   "Configured Timbre logging"
   []

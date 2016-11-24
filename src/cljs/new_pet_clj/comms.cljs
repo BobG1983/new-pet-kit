@@ -8,7 +8,7 @@
 
 (def url (if conf/DEBUG
            "http://localhost:3449/api/"
-           "http://www.newpetkit.com/api/"))
+           "https://www.newpetkit.com/api/"))
 
 (defn create-cart
   [kit]
