@@ -9,8 +9,8 @@
             [ring.middleware.transit :refer [wrap-transit-body wrap-transit-response]]))
 
 ;; Can't use SSL with Figwheel
-(def site-defs (if conf/DEBUG site-defaults secure-site-defaults))
-(def api-defs (if conf/DEBUG api-defaults secure-api-defaults))
+(def site-defs (if conf/DEBUG site-defaults (assoc secure-site-defaults :proxy true)))
+(def api-defs (if conf/DEBUG api-defaults (assoc secure-api-defaults :proxy true)))
 
 ;; Wrap handlers in appropriate defaults
 (def site  (wrap-defaults site-routes site-defs))
