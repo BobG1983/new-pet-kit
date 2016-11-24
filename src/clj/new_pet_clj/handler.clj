@@ -11,8 +11,10 @@
 
 ;; Combine handlers
 (def routes (wrap-defaults (cjr/routes api-routes site-routes)
-                           (-> secure-site-defaults
-                               (assoc :proxy true))))
+                           (if conf/DEBUG
+                             site-defaults
+                             (assoc secure-site-defaults :proxy true))))
+
 
 ;; Main handler
 (def prod-handler  (-> routes
