@@ -15,14 +15,13 @@
                   :ignore-failures? false})
 
 (defn log-environment []
-  (when DEBUG
-    (t/debug (str "Debug: " DEBUG))
-    (t/debug (str "Amazon Key: " (env :amazon-key)))
-    (t/debug (str "Secret Key: " (env :secret-key)))
-    (t/debug (str "Associate ID: " (env :associate-id)))))
+    (t/info (str "Debug: " DEBUG))
+    (t/info (str "Amazon Key: " (env :amazon-key)))
+    (t/info (str "Secret Key: " (env :secret-key)))
+    (t/info (str "Associate ID: " (env :associate-id))))
 
 (defn configure-logging
   "Configured Timbre logging"
   []
-  (let [level (if DEBUG :debug :warn)]
+  (let [level (if DEBUG :debug :info)]
     (t/set-level! level)))
