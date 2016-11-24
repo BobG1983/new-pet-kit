@@ -16,6 +16,7 @@
 
 (defn log-environment []
     (t/info (str "Debug: " DEBUG))
+    (t/info (str "Port: " (env :port)))
     (t/info (str "Amazon Key: " (env :amazon-key)))
     (t/info (str "Secret Key: " (env :secret-key)))
     (t/info (str "Associate ID: " (env :associate-id))))

@@ -1,11 +1,10 @@
-(defproject new-pet-clj "0.3.2"
+(defproject new-pet-clj "0.3.4"
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [org.clojure/clojurescript "1.9.293"]
                            [reagent "0.6.0"]
                            [re-frame "0.8.0"]
                            [secretary "1.2.3"]
                            [compojure "1.5.1"]
-                           [yogthos/config "0.8"]
                            [ring "1.5.0"]
                            [ring/ring-defaults "0.2.1"]
                            [http-kit "2.2.0"]
@@ -26,6 +25,7 @@
             :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
             :figwheel {:css-dirs ["resources/public/css"]
                        :ring-handler new-pet-clj.handler/handler}
+            :profiles {:uberjar {:aot :all}}
             :cljsbuild {:builds [{:id "dev"
                                   :source-paths ["src/cljs"]
                                   :figwheel     {:on-jsload "new-pet-clj.core/mount-root"}
