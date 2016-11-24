@@ -5,8 +5,10 @@
             [new-pet-clj.api.routes :refer [api-routes]]))
 
 (defroutes routes
-           (GET "/" [] (resource-response "index.html" {:root "public"}))
+           (GET "/" [] (assoc-in (resource-response "index.html" {:root "public"})
+                                 [:headers "Content-Type"] "text/html"))
            (resources "/")
-           (not-found (resource-response "404.html" {:root "public"})))
+           (not-found (assoc-in (resource-response "404.html" {:root "public"})
+                                [:header "Content-Type"] "text/html")))
 
 (def site-routes routes)
