@@ -17,5 +17,5 @@
 (defn configure-logging
   "Configured Timbre logging"
   []
-  (let [level (if DEBUG :debug :info)]
+  (let [level (if DEBUG :debug :warn)]
     (t/set-level! level)))
