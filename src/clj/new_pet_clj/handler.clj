@@ -9,24 +9,24 @@
             [ring.middleware.transit :refer [wrap-transit-body wrap-transit-response]]
             [taoensso.timbre :as t]))
 
-;; Can't use SSL with Figwheel
-(def site-defs (if conf/DEBUG site-defaults (assoc secure-site-defaults :proxy true)))
-(def api-defs (if conf/DEBUG api-defaults (assoc secure-api-defaults :proxy true)))
+;; Combine routes
+;; Enable proxy for Heroku and disable CSRF because we don't authenticate and users can't actually do
+;; anything damaging on the site and it's a pain.
+(def routes (wrap-defaults (cjr/routes api-routes site-routes)
+                           (t/spy (if conf/DEBUG
+                                      (-> site-defaults
+                                          (assoc-in [:security :anti-forgery] false))
+                                      (-> secure-site-defaults
+                                          (assoc :proxy true)
+                                          (assoc-in [:security :anti-forgery] false))))))
 
-;; Wrap handlers in appropriate defaults
-(def site  (wrap-defaults site-routes site-defs))
-(def api   (wrap-defaults api-routes api-defs))
-
-;; Combine handlers
-(def routes (cjr/routes api site))
-
-;; Main handler
+;; Production handler
 (def prod-handler  (-> routes
                        (wrap-cors conf/CORS_POLICY)
                        (wrap-transit-body {:keywords? true :opts {}})
                        (wrap-transit-response)))
 
-;; Add dev mode wraps
+;; Development handler
 (def dev-handler (-> prod-handler
                      (wrap-reload)))
 
