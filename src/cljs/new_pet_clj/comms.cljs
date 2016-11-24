@@ -19,5 +19,5 @@
                                                   :with-credentials? false}))
                 cart (or (:cart (:body response)) {})
                 cart-status (or (:status (:body response)) :inactive)]
-            (do (rf/dispatch [:set-cart cart])
-                (rf/dispatch [:set-cart-status cart-status]))))))
+            (rf/dispatch [:set-cart cart])
+            (rf/dispatch [:set-cart-status cart-status])))))
