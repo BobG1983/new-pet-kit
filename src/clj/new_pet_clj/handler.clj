@@ -1,13 +1,35 @@
 (ns new-pet-clj.handler
-  (:require [compojure.core :refer [GET defroutes]]
-            [compojure.route :refer [resources]]
-            [ring.util.response :refer [resource-response]]
-            [ring.middleware.reload :refer [wrap-reload]]))
+  (:require [ring.middleware.reload :refer [wrap-reload]]
+            [ring.middleware.defaults :refer :all]
+            [compojure.core :as cjr]
+            [new-pet-clj.config :as conf]
+            [new-pet-clj.routes :refer [site-routes]]
+            [new-pet-clj.api.routes :refer [api-routes]]
+            [com.unbounce.encors :refer [wrap-cors]]
+            [ring.middleware.transit :refer [wrap-transit-body wrap-transit-response]]))
 
-(defroutes routes
-  (GET "/" [] (resource-response "index.html" {:root "public"}))
-  (resources "/"))
+;; Can't use SSL with Figwheel
+(def site-defs (if conf/DEBUG site-defaults (assoc secure-site-defaults :proxy true)))
+(def api-defs (if conf/DEBUG api-defaults secure-api-defaults))
 
-(def dev-handler (-> #'routes wrap-reload))
+;; Wrap handlers in appropriate defaults
+(def site  (wrap-defaults site-routes site-defs))
+(def api   (wrap-defaults api-routes api-defs))
 
-(def handler routes)
+;; Combine handlers
+(def routes (cjr/routes api site))
+
+;; Main handler
+(defn prod-handler [] (-> routes
+                          (wrap-cors conf/CORS_POLICY)
+                          (wrap-transit-body {:keywords? true :opts {}})
+                          (wrap-transit-response)))
+
+;; Add dev mode wraps
+(defn dev-handler [] (-> (prod-handler)
+                         (wrap-reload)))
+
+;; Final handler
+(def handler (do (conf/configure-logging)
+                 (conf/log-environment)
+                 (if conf/DEBUG (dev-handler) (prod-handler))))

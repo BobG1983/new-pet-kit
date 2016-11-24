@@ -5,11 +5,11 @@
               [new-pet-clj.subs]
               [new-pet-clj.routes :as routes]
               [new-pet-clj.views :as views]
-              [new-pet-clj.config :as config]))
+              [new-pet-clj.config :as conf]))
 
 
 (defn dev-setup []
-  (when config/debug?
+  (when conf/DEBUG
     (enable-console-print!)
     (println "dev mode")))
 
@@ -18,6 +18,8 @@
                   (.getElementById js/document "app")))
 
 (defn ^:export init []
+  (conf/configure-logging)
+  (conf/log-environment)
   (routes/app-routes)
   (re-frame/dispatch-sync [:initialize-db])
   (dev-setup)

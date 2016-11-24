@@ -1,5 +1,14 @@
 /*.log
 /target
 /*-init.clj
-/resources/public/js/compiled
 out
+.idea
+resources/public/js/
+.DS_Store
+*~
+*.swp
+*.iml
+*.nrepl-port
+.lein-env
+profiles.clj
+.lein-repl-history
