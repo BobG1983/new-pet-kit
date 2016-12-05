@@ -20,4 +20,7 @@
 (defn main-panel []
   (let [active-panel (rf/subscribe [:active-panel])]
     (fn []
-      [show-panel @active-panel])))
+      [:div
+       (comp/header)
+       [show-panel @active-panel]
+       (comp/footer)])))
