@@ -11,7 +11,7 @@
 ;; Main
 (defmulti panels identity)
 (defmethod panels :home-panel [] [home-panel])
-(defmethod panels :default [] [:div])
+(defmethod panels :default [] [:div [:a {:href "/"} "Home"]])
 
 (defn show-panel
   [panel-name]

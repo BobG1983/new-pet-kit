@@ -17,8 +17,8 @@
   [:form
    [:div.row
     [:div
-     [:div.two.columns.inline "I'm getting a: "]
-     [:div.four.columns.inline
+     [:div.inline "I'm getting a: "]
+     [:div.inline
       [:select {:id           kit-selector-title
                 :defaultValue (:name default-kit)
                 :on-change    #(rf/dispatch [:set-selected-kit (get-kit-by-name (-> % .-target .-value) kits)])}
