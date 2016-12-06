@@ -20,8 +20,11 @@
   (let [selected-kit (rf/subscribe [:selected-kit])]
     (if-not
       (nil? @selected-kit)
-      [:div (kd/render-kit-display @selected-kit)
-            (cart-display)])))
+      [:div.row
+        [:div.inline.four.columns.pad-left-two
+         (kd/render-kit-display @selected-kit)]
+        [:div.inline.four.columns
+         (cart-display)]])))
 
 (defn header []
   (h/header))

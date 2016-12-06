@@ -1,12 +1,8 @@
-(ns new-pet-clj.components.header
-  (:require [secretary.core :as s]))
-
+(ns new-pet-clj.components.header)
 
 (defn header []
   [:header
-   [:div.logo
+   [:div.row
     [:a {:href "#/"}
-     [:img {:alt "New Pet Kit - The Right Start"
-            :width 524
-            :height 131
-            :src "/gfx/color_logo_524x131.png"}]]]])
+     [:img.ten.pad-left-one.columns {:alt "New Pet Kit - The Right Start"
+                                     :src "/gfx/white_logo_color_background_trimmed.png"}]]]])

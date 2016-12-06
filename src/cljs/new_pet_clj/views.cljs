@@ -22,5 +22,5 @@
     (fn []
       [:div
        (comp/header)
-       [show-panel @active-panel]
+       [:div.panel [show-panel @active-panel]]
        (comp/footer)])))
