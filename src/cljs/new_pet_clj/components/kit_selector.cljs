@@ -2,6 +2,8 @@
   (:require [re-frame.core :as rf]))
 
 (def kit-selector-title "kit-selector")
+(def placeholder-selection "...")
+(def kit-title "Pick your kit")
 
 (defn kit-selector-option
   [kit]
@@ -14,12 +16,14 @@
   (some #(when (= (:name %) kit-name) %) kits))
 
 (defn render-kit-selector [kits default-kit]
-  [:form
-   [:div.row
-    [:div
-     [:div.two.columns.inline "I'm getting a: "]
-     [:div.four.columns.inline
-      [:select {:id           kit-selector-title
-                :defaultValue (:name default-kit)
-                :on-change    #(rf/dispatch [:set-selected-kit (get-kit-by-name (-> % .-target .-value) kits)])}
-       (map kit-selector-option kits)]]]]])
+  [:div.section
+    [:div.control.is-horizontal
+     [:div.control-label
+      [:label.title.is-5.is-inline kit-title]]
+     [:div.control
+      [:div.select
+       [:select {:id kit-selector-title
+                 :on-change #(rf/dispatch [:set-selected-kit (get-kit-by-name (-> % .-target .-value) kits)])
+                 :defaultValue placeholder-selection}
+        [:option {:value placeholder-selection :disabled true :hidden true} placeholder-selection]
+        (map kit-selector-option kits)]]]]])

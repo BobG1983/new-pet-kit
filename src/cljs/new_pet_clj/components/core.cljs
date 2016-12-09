@@ -4,7 +4,8 @@
             [new-pet-clj.components.kit-display :as kd]
             [new-pet-clj.components.cart-display :as cd]
             [new-pet-clj.components.header :as h]
-            [new-pet-clj.components.footer :as f]))
+            [new-pet-clj.components.footer :as f]
+            [new-pet-clj.components.splash :as spl]))
 
 (defn kit-selector []
   (let [selected-kit (rf/subscribe [:selected-kit])
@@ -17,14 +18,16 @@
     (cd/render-cart @cart @status)))
 
 (defn kit-display []
-  (let [selected-kit (rf/subscribe [:selected-kit])]
-    (if-not
-      (nil? @selected-kit)
-      [:div (kd/render-kit-display @selected-kit)
-            (cart-display)])))
+  (let [selected-kit (rf/subscribe [:selected-kit])
+        cart-status (rf/subscribe [:cart-status])]
+    (if (= @cart-status :active)
+        (kd/render-kit-display @selected-kit @cart-status))))
 
 (defn header []
   (h/header))
 
 (defn footer []
   (f/footer))
+
+(defn splash []
+  (spl/splash))
