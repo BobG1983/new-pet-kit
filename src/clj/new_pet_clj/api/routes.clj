@@ -9,5 +9,7 @@
                                (POST "/create-cart" request {:status 200
                                                              :headers {"Content-Type" "application/transit+json"}
                                                              :body (api/create-cart-response (:body request))})
-                               (ANY "*" [] {:status 404})))
+                               (ANY "*" request {:status 404
+                                                 :headers {"Content-Type" "text/html"}
+                                                 :body "Error 404 in API"})))
 

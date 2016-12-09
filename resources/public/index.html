@@ -1,81 +1,109 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <!--Usual Meta Stuff-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Starter kits for new pets">
 
-<head>
-    <meta charset='utf-8'>
-    <meta name="viewport" content='width=device-width, initial-scale=1.0'>
-    <script>
-        ! function(a) {
-            "use strict";
-            var b = function(b, c, d) {
-                function j(a) {
-                    return e.body ? a() : void setTimeout(function() {
-                        j(a)
-                    })
-                }
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
 
-                function l() {
-                    f.addEventListener && f.removeEventListener("load", l), f.media = d || "all"
-                }
-                var g, e = a.document,
-                    f = e.createElement("link");
-                if (c) g = c;
-                else {
-                    var h = (e.body || e.getElementsByTagName("head")[0]).childNodes;
-                    g = h[h.length - 1]
-                }
-                var i = e.styleSheets;
-                f.rel = "stylesheet", f.href = b, f.media = "only x", j(function() {
-                    g.parentNode.insertBefore(f, c ? g : g.nextSibling)
-                });
-                var k = function(a) {
-                    for (var b = f.href, c = i.length; c--;)
-                        if (i[c].href === b) return a();
-                    setTimeout(function() {
-                        k(a)
-                    })
+        <!--Preload Polyfill-->
+        <script>
+            ! function(a) {
+                "use strict";
+                var b = function(b, c, d) {
+                    function j(a) {
+                        return e.body ? a() : void setTimeout(function() {
+                            j(a)
+                        })
+                    }
+
+                    function l() {
+                        f.addEventListener && f.removeEventListener("load", l), f.media = d || "all"
+                    }
+                    var g, e = a.document,
+                        f = e.createElement("link");
+                    if (c) g = c;
+                    else {
+                        var h = (e.body || e.getElementsByTagName("head")[0]).childNodes;
+                        g = h[h.length - 1]
+                    }
+                    var i = e.styleSheets;
+                    f.rel = "stylesheet", f.href = b, f.media = "only x", j(function() {
+                        g.parentNode.insertBefore(f, c ? g : g.nextSibling)
+                    });
+                    var k = function(a) {
+                        for (var b = f.href, c = i.length; c--;)
+                            if (i[c].href === b) return a();
+                        setTimeout(function() {
+                            k(a)
+                        })
+                    };
+                    return f.addEventListener && f.addEventListener("load", l), f.onloadcssdefined = k, k(l), f
                 };
-                return f.addEventListener && f.addEventListener("load", l), f.onloadcssdefined = k, k(l), f
-            };
-            "undefined" != typeof exports ? exports.loadCSS = b : a.loadCSS = b
-        }("undefined" != typeof global ? global : this),
-        function(a) {
-            if (a.loadCSS) {
-                var b = loadCSS.relpreload = {};
-                if (b.support = function() {
-                        try {
-                            return a.document.createElement("link").relList.supports("preload")
-                        } catch (a) {
-                            return !1
-                        }
-                    }, b.poly = function() {
-                        for (var b = a.document.getElementsByTagName("link"), c = 0; c < b.length; c++) {
-                            var d = b[c];
-                            "preload" === d.rel && "style" === d.getAttribute("as") && (a.loadCSS(d.href, d), d.rel = null)
-                        }
-                    }, !b.support()) {
-                    b.poly();
-                    var c = a.setInterval(b.poly, 300);
-                    a.addEventListener && a.addEventListener("load", function() {
-                        a.clearInterval(c)
-                    }), a.attachEvent && a.attachEvent("onload", function() {
-                        a.clearInterval(c)
-                    })
+                "undefined" != typeof exports ? exports.loadCSS = b : a.loadCSS = b
+            }("undefined" != typeof global ? global : this),
+            function(a) {
+                if (a.loadCSS) {
+                    var b = loadCSS.relpreload = {};
+                    if (b.support = function() {
+                            try {
+                                return a.document.createElement("link").relList.supports("preload")
+                            } catch (a) {
+                                return !1
+                            }
+                        }, b.poly = function() {
+                            for (var b = a.document.getElementsByTagName("link"), c = 0; c < b.length; c++) {
+                                var d = b[c];
+                                "preload" === d.rel && "style" === d.getAttribute("as") && (a.loadCSS(d.href, d), d.rel = null)
+                            }
+                        }, !b.support()) {
+                        b.poly();
+                        var c = a.setInterval(b.poly, 300);
+                        a.addEventListener && a.addEventListener("load", function() {
+                            a.clearInterval(c)
+                        }), a.attachEvent && a.attachEvent("onload", function() {
+                            a.clearInterval(c)
+                        })
+                    }
                 }
-            }
-        }(this);
-    </script>
-    <link rel='preload' href="https://fonts.googleapis.com/css?family=Raleway" as="style" onload="this.rel='stylesheet'">
-    <link rel='preload' href="/css/normalize.css" as="style" onload="this.rel='stylesheet'" />
-    <link rel='preload' href="/css/skeleton.css" as="style" onload="this.rel='stylesheet'" />
-</head>
+            }(this);
+        </script>
 
-<body>
-    <div id="app" class="container"></div>
-    <script src="js/compiled/app.js"></script>
-    <script>
-        new_pet_clj.core.init();
-    </script>
-</body>
+        <!--CSS Stuff-->
+        <link rel='preload' href="/css/bulma.css" as="style" onload="this.rel='stylesheet'" />
+        <link rel='preload' href="/css/landing.css" as="style" onload="this.rel='stylesheet'" />
+        <link rel="preload" href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
+
+        <!--Actual Site Stuff-->
+        <title>New Pet Kit - One click starter kits for new pets</title>
+    </head>
+
+    <body>
+        <div id="app"></div>
+        <script src="js/compiled/app.js"></script>
+        <script>
+            new_pet_clj.core.init();
+        </script>
+    </body>
 
 </html>

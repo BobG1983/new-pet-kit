@@ -1,9 +1,34 @@
 (ns new-pet-clj.components.cart-display
   (:require [taoensso.timbre :as t]))
 
+(def buy-label "Buy it now")
+(def buy-placeholder "...")
+(def buy-ready "Buy")
+(def price-label "Price: ")
+
+(defmulti render-button (fn [cart status] status))
+(defmethod render-button :default [_ _]
+  [:a.button.is-disabled buy-placeholder])
+(defmethod render-button :active [cart _]
+  [:a.button {:href (:url cart)} buy-ready])
+(defmethod render-button :loading [cart _]
+  [:a.button.is-loading])
+
+(defmulti render-price (fn [cart status] status))
+(defmethod render-price :default [_ _] [:div])
+(defmethod render-price :active [cart _]
+  [:div.price [:small (str price-label (:price cart))]])
+
+(defn show-cart [cart status]
+  [:div.section
+   [:div.control.is-horizontal
+    [:div.control-label
+     [:label.title.is-5 buy-label]
+     (render-price cart status)]
+    [:div.control
+     (render-button cart status)]]])
+
 (defn render-cart
   [cart status]
-  [:div [:div (str "Cart Status: " (name status))]
-        [:div (str "URL: " (:url cart))]
-        [:div (str "Price: " (:price cart))]
-        [:div (str "Cart ID: " (:cart-id cart))]])
+  (show-cart cart status))
+
