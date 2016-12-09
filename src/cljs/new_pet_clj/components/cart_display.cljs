@@ -11,7 +11,8 @@
 (defmethod render-button :default [_ _]
   [:a.button.is-disabled buy-placeholder])
 (defmethod render-button :active [cart _]
-  [:a.button {:href (:url cart)} buy-ready])
+  [:a.button {:href (:url cart)
+              :target "_blank"} buy-ready])
 (defmethod render-button :loading [cart _]
   [:a.button.is-loading])
 
