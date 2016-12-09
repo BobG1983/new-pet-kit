@@ -1587,7 +1587,7 @@ a.box:active {
   cursor: pointer;
   display: block;
   outline: none;
-  padding-right: 36px;
+  padding-right: 32px;
 }
 
 .select select:hover {

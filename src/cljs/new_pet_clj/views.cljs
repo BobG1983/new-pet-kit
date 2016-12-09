@@ -4,11 +4,16 @@
 
 (defn home-panel []
   (fn []
-    [:div
-     (comp/kit-selector)
-     (comp/kit-display)]))
+    [:div.hero-body
+     [:div.container
+      [:div.columns
+       [:div.column.is-5.has-text-right
+        (comp/splash)]
+       [:div.column.is-6.is-offset-1.has-text-left.is-vcentered
+        (comp/kit-selector)
+        (comp/cart-display)
+        (comp/kit-display)]]]]))
 
-;; Main
 (defmulti panels identity)
 (defmethod panels :home-panel [] [home-panel])
 (defmethod panels :default [] [:div [:a {:href "/"} "Home"]])
@@ -20,7 +25,7 @@
 (defn main-panel []
   (let [active-panel (rf/subscribe [:active-panel])]
     (fn []
-      [:div
+      [:section.is-full-height.is-dark.hero
        (comp/header)
-       [:div.panel [show-panel @active-panel]]
+       [:div [show-panel @active-panel]]
        (comp/footer)])))
