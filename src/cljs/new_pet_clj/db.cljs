@@ -5,6 +5,7 @@
    :cart nil
    :cart-status :inactive
    :selected-kit nil
+   ;; TODO: Make this stuff not nonsense
    :kits         '({:name "Small Dog" :contents [{:name "Spooge" :code "B00QKSSGH0"}
                                                  {:name "Boobs" :code "B0155XV9KG"}]}
                    {:name "Medium Dog" :contents [{:name "Big Ol Basket" :code "B00QKSSGH0"}

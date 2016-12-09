@@ -6,6 +6,7 @@
 (def buy-ready "Buy")
 (def price-label "Price: ")
 
+;; TODO: Add target="_blank" to active button
 (defmulti render-button (fn [cart status] status))
 (defmethod render-button :default [_ _]
   [:a.button.is-disabled buy-placeholder])
