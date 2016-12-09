@@ -20,8 +20,8 @@
 (defn kit-display []
   (let [selected-kit (rf/subscribe [:selected-kit])
         cart-status (rf/subscribe [:cart-status])]
-    (if (= @cart-status :active)
-        (kd/render-kit-display @selected-kit @cart-status))))
+    (if-not (nil? @selected-kit)
+            (kd/render-kit-display @selected-kit @cart-status))))
 
 (defn header []
   (h/header))
