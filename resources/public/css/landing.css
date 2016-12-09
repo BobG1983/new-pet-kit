@@ -78,3 +78,7 @@ select {
   position: fixed;
   bottom: 0px;
 }
+
+select::-ms-expand {
+    display: none;
+}
