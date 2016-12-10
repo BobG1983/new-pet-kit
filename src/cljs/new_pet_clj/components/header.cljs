@@ -7,7 +7,7 @@
     [:nav.nav
      [:div.container
       [:div.nav-left
-       [:a.nav-item {:href "/#/"} [:img {:src "/gfx/white_logo_transparent_background.png"
+       [:a.nav-item {:href "/#/"} [:img {:src "/gfx/white_logo_transparent_background_small.png"
                                          :alt "Home"
                                          :height "48"
                                          :width "259"}]]]
