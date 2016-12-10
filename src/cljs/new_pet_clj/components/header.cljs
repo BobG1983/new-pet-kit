@@ -7,10 +7,10 @@
     [:nav.nav
      [:div.container
       [:div.nav-left
-       [:a.nav-item {:href "/#/"} [:img {:src "/gfx/white_logo_transparent_background.png"
+       [:a.nav-item {:href "/#/"} [:img {:src "/gfx/white_logo_transparent_background_small.png"
                                          :alt "Home"
-                                         :height "48"
-                                         :width "259"}]]]
+                                         :height "50"
+                                         :width "272"}]]]
       [:div.nav-right.nav-menu
        ;(soc/facebook)
        ;(soc/twitter)
