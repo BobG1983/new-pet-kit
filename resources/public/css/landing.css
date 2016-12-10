@@ -82,3 +82,7 @@ select {
 select::-ms-expand {
     display: none;
 }
+
+.nav-item img {
+  max-height: 50px;
+}
