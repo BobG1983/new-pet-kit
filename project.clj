@@ -1,4 +1,4 @@
-(defproject new-pet-clj "0.4.1"
+(defproject new-pet-clj "0.4.2"
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [org.clojure/clojurescript "1.9.293"]
                            [reagent "0.6.0"]
