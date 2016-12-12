@@ -3,11 +3,12 @@
             [ring.middleware.defaults :refer :all]
             [ring.middleware.transit :refer [wrap-transit-body wrap-transit-response]]
             [ring.middleware.gzip :refer [wrap-gzip]]
+            [new-pet-clj.middleware.core :as m]
             [com.unbounce.encors :refer [wrap-cors]]
             [compojure.core :as cjr]
             [taoensso.timbre :as t]
             [new-pet-clj.config :as conf]
-            [new-pet-clj.routes :refer [site-routes]]
+            [new-pet-clj.site.routes :refer [site-routes]]
             [new-pet-clj.api.routes :refer [api-routes]]))
 
 ;; Combine routes
@@ -21,11 +22,17 @@
                                    (assoc-in [:security :anti-forgery] false)))))
 
 ;; Production handler
+(defn one-week [] (* 7 24 60 60))
+(defn one-day [] (* 1 24 60 60))
 (def prod-handler  (-> routes
                        (wrap-cors conf/CORS_POLICY)
                        (wrap-transit-body {:keywords? true :opts {}})
                        (wrap-transit-response)
-                       (wrap-gzip)))
+                       (wrap-gzip)
+                       (m/wrap-browser-caching {"text/css" (one-week)
+                                                "text/javascript" (one-day)
+                                                "text/html" (one-week)
+                                                "image/png" (one-week)})))
 
 ;; Development handler
 (def dev-handler (-> prod-handler
