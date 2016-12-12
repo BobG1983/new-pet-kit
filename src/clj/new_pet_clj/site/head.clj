@@ -33,6 +33,7 @@
 ; Actual Head
 (defn head []
   (list (title site description)
+        (meta-content description)
         (scr/inline-script preload-polyfill)
         (ico/icons apple-icon-sizes android-icon-sizes msft-icon-sizes favicon-sizes)
         (sty/stylesheets css-folder primary-sheet expanded-sheet)
