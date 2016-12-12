@@ -22,17 +22,17 @@
                                    (assoc-in [:security :anti-forgery] false)))))
 
 ;; Production handler
-(defn one-week [] (* 7 24 60 60))
-(defn one-day [] (* 1 24 60 60))
+(defn weeks [x] (* x 7 24 60 60))
+(defn days [x] (* x 24 60 60))
 (def prod-handler  (-> routes
                        (wrap-cors conf/CORS_POLICY)
                        (wrap-transit-body {:keywords? true :opts {}})
                        (wrap-transit-response)
                        (wrap-gzip)
-                       (m/wrap-browser-caching {"text/css" (one-week)
-                                                "text/javascript" (one-day)
-                                                "text/html" (one-week)
-                                                "image/png" (one-week)})))
+                       (m/wrap-browser-caching {"text/css" (weeks 4)
+                                                "text/javascript" (weeks 1)
+                                                "text/html" (weeks 4)
+                                                "image/png" (weeks 4)})))
 
 ;; Development handler
 (def dev-handler (-> prod-handler
