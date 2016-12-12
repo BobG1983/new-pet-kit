@@ -1,4 +1,4 @@
-(defproject new-pet-clj "0.4.3"
+(defproject new-pet-clj "0.4.4"
             :dependencies [[org.clojure/clojure "1.8.0"]
                            [org.clojure/clojurescript "1.9.293"]
                            [reagent "0.6.0"]
@@ -17,7 +17,8 @@
                            [binaryage/devtools "0.8.3"]
                            [pradpi "0.2.2"]
                            [com.taoensso/timbre "4.7.4"]
-                           [amalloy/ring-gzip-middleware "0.1.3"]]
+                           [amalloy/ring-gzip-middleware "0.1.3"]
+                           [hiccup "1.0.5"]]
             :plugins [[lein-cljsbuild "1.1.4"]
                       [lein-environ "1.1.0"]
                       [lein-figwheel "0.5.7"]]
