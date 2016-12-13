@@ -11,8 +11,8 @@
 (defn meta-content [description]
   (list [:meta {:charset "utf-8"}]
         [:meta {:content "IE=edge" :http-equiv "X-UA-Compatible"}]
-        [:meta {:content "width=device-width initial-scale=1.0" :name "viewport"}]
-        [:meta {:content description :name "description"}]))
+        [:meta { :name "viewport" :content "width=device-width, initial-scale=1.0"}]
+        [:meta {:name "description" :content description}]))
 
 ; Defines
 (def description "One click starter kits for new pets")
