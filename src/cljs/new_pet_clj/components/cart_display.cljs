@@ -1,5 +1,6 @@
 (ns new-pet-clj.components.cart-display
-  (:require [taoensso.timbre :as t]))
+  (:require [taoensso.timbre :as t]
+            [new-pet-clj.comms :as com]))
 
 (def buy-label "Buy it now")
 (def buy-placeholder "...")
@@ -11,7 +12,8 @@
 (defmethod render-button :default [_ _]
   [:a.button.is-disabled buy-placeholder])
 (defmethod render-button :active [cart _]
-  [:a.button {:href (:url cart)
+  [:a.button {:on-click (com/buy-cart (:cart-id cart))
+              :href (:url cart)
               :target "_blank"} buy-ready])
 (defmethod render-button :loading [cart _]
   [:a.button.is-loading])
