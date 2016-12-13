@@ -1,7 +1,7 @@
 (ns new-pet-clj.api.create-cart
-  (:require [environ.core :refer [env]]
-    [pradpi.core :as p]
-    [taoensso.timbre :as t]))
+  (:require [taoensso.timbre :as t]
+            [environ.core :refer [env]]
+            [pradpi.core :as p]))
 
 (def associate-id (env :associate-id))
 (def amazon-key (env :amazon-key))
@@ -13,12 +13,11 @@
 
 (defn asin-list->item-map [asins]
   (reduce conj {}
-    (map-indexed
-      (fn [idx asin]
-          (let [key-root (str "Item." (inc idx))
-                asin-key (keyword (str key-root ".ASIN"))
-                quant-key (keyword (str key-root ".Quantity"))]
-            {asin-key asin quant-key 1}) asins))))
+          (map-indexed (fn [idx asin] (let [key-root (str "Item." (inc idx))
+                                            asin-key (keyword (str key-root ".ASIN"))
+                                            quant-key (keyword (str key-root ".Quantity"))]
+                                        {asin-key asin quant-key 1}))
+                       asins)))
 
 (defn create-cart-request [items-map]
   (p/request "CartCreate" "https" config items-map))
@@ -32,6 +31,7 @@
 
 (defn create-cart [kit]
   (try (->> kit
+            (t/spy :info "selected-kit")
             (:contents)
             (map :code)
             (asin-list->item-map)
