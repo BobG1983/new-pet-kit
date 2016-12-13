@@ -2,8 +2,6 @@
   (:require [new-pet-clj.api.create-cart :as cc]
             [taoensso.timbre :as t]))
 
-
-
 (defn create-cart-response
   "Creates a reponse object to return to the client, including :status and :cart"
   [kit]
