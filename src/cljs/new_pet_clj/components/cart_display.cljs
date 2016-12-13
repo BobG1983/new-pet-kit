@@ -5,8 +5,8 @@
 (def buy-placeholder "...")
 (def buy-ready "Buy")
 (def price-label "Price: ")
+(def tax-warning "Exc. tax & shipping")
 
-;; TODO: Add target="_blank" to active button
 (defmulti render-button (fn [cart status] status))
 (defmethod render-button :default [_ _]
   [:a.button.is-disabled buy-placeholder])
@@ -19,7 +19,8 @@
 (defmulti render-price (fn [cart status] status))
 (defmethod render-price :default [_ _] [:div])
 (defmethod render-price :active [cart _]
-  [:div.price [:small (str price-label (:price cart))]])
+  [:div [:div.price [:small (str price-label (:price cart))]]
+        [:div.price [:small tax-warning]]])
 
 (defn show-cart [cart status]
   [:div.section

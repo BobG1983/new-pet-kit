@@ -86,3 +86,16 @@ select::-ms-expand {
 .nav-item img {
   max-height: 50px;
 }
+
+.trademark {
+  font-size: 85%;
+  opacity: 0.5;
+  color: #f5f7fa;
+}
+
+.copyright a{
+  font-size: 85%;
+  opacity: 0.5;
+  color: #f5f7fa;
+  padding-right: 20px;
+}
