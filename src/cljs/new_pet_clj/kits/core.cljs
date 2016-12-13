@@ -38,5 +38,12 @@
                    {:name "mDesign™ Silicon Feeding Mat" :code "B01EB6CRHW"}
                    {:name "Petmate™ Litter Pan" :code "B00074VWJM"}
                    {:name "Duranimals™ Cat Litter Scoop" :code "B001DCAAP4"}
-                   {:name "Arm & Hammer™ Double Duty Clumping Cat Litter™" :code "B004U8Z436"}])
+                   {:name "Arm & Hammer™ Double Duty Clumping Cat Litter™" :code "B004U8Z436"}
+                   {:name "Meow Mix™ Original Choice™ Cat Food - 1 Months Supply" :code "B000R4CJQ2"}])
 (def cat-kit {:name "Cat" :contents cat-contents})
+
+(def puppy-contents (conj small-dog-contents {:name "Four Paws™ Wee Wee™ Pads" :code"B0002DJT9S"}))
+(def puppy-kit {:name "Puppy" :contents puppy-contents})
+
+(def kitten-contents cat-contents)
+(def kitten-kit {:name "Kitten" :contents kitten-contents})
