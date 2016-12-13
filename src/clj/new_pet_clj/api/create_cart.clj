@@ -11,9 +11,7 @@
              :key-id amazon-key
              :secret secret-key})
 
-(defn asin-list->item-map
-  "Converts a list of ASINs to a map of items"
-  [asins]
+(defn asin-list->item-map [asins]
   (reduce conj {}
     (map-indexed
       (fn [idx asin]
@@ -22,24 +20,17 @@
                 quant-key (keyword (str key-root ".Quantity"))]
             {asin-key asin quant-key 1}) asins))))
 
-(defn create-cart-request
-  "Takes a map of items and returns a 'CartCreate' request"
-  [items-map]
+(defn create-cart-request [items-map]
   (p/request "CartCreate" "https" config items-map))
 
-(defn build-response
-  "Extracts price, cartid, and purchase url from the amazon response"
-  [cart-request]
+(defn build-response [cart-request]
   (let [cart (:cart @cart-request)
         cart-id (:cart-id cart)
         price (:formatted-price (:sub-total cart))
         url (:purchase-url cart)]
     {:cart-id cart-id :price price :url url}))
 
-(defn create-cart
-  "Given a kit creates an Amazon cart containing
-  the items in the kit and returns the url to buy it."
-  [kit]
+(defn create-cart [kit]
   (try (->> kit
             (:contents)
             (map :code)

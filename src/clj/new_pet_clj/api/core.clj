@@ -5,8 +5,8 @@
 (defn create-cart-response [kit]
   (let [cart (cc/create-cart kit)
         status (if (nil? (:cart-id cart)) :inactive :active)]
-    (t/spy :info {:status status :cart cart})))
+    (t/spy :info "create-cart" {:status status :cart cart})))
 
-(defn buy-cart-response [cart]
-  (t/spy :info cart))
+(defn buy-cart-response [cart-id]
+  (t/spy :info "buy-cart" cart-id))
 
