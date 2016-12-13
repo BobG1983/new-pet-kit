@@ -8,5 +8,6 @@
     (t/spy :info "create-cart" {:status status :cart cart})))
 
 (defn buy-cart-response [cart-id]
-  (t/spy :info "buy-cart" cart-id))
+  (t/info "buy-cart" cart-id)
+  {:res "ok"})
 
