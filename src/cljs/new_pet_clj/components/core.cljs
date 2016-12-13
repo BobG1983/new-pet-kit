@@ -27,7 +27,8 @@
   (h/header))
 
 (defn footer []
-  (f/footer))
+  (let [conversion (rf/subscribe [:conversion])]
+    (f/footer @conversion)))
 
 (defn splash []
   (spl/splash))

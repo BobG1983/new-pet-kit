@@ -2,7 +2,8 @@
   (:require [new-pet-clj.kits.core :as k]))
 
 (def default-db
-  {:active-panel :home-panel
+  {:conversion false
+   :active-panel :home-panel
    :cart nil
    :cart-status :inactive
    :selected-kit nil

@@ -21,3 +21,7 @@
 (rf/reg-sub
   :cart-status
   (fn [db] (:cart-status db)))
+
+(rf/reg-sub
+  :conversion
+  (fn [db] (:conversion db)))
