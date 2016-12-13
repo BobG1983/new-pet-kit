@@ -2,9 +2,7 @@
   (:require [new-pet-clj.api.create-cart :as cc]
             [taoensso.timbre :as t]))
 
-(defn create-cart-response
-  "Creates a reponse object to return to the client, including :status and :cart"
-  [kit]
+(defn create-cart-response [kit]
   (let [cart (cc/create-cart kit)
         status (if (nil? (:cart-id cart)) :inactive :active)]
     (t/spy :info {:status status :cart cart})))
