@@ -15,7 +15,8 @@
         [:meta {:name "description" :content description}]))
 
 ; Defines
-(def description "One click starter kits for new pets")
+(def description "Starter kits for Cats & Dogs")
+(def long-description "Get everything you need for your new Cat or Dog in just two clicks.")
 (def site "New Pet Kit")
 
 (def apple-icon-sizes [57 60 72 76 114 120 144 152 180 192])
@@ -34,7 +35,7 @@
 ; Actual Head
 (defn head []
   (list (title site description)
-        (meta-content description)
+        (meta-content long-description)
         (scr/inline-script preload-polyfill)
         (scr/inline-script google-analytics)
         (ico/icons apple-icon-sizes android-icon-sizes msft-icon-sizes favicon-sizes)
