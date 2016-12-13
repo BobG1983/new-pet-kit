@@ -13,6 +13,7 @@
 (defn create-cart [kit]
   (do (rf/dispatch [:set-cart-status :loading])
       (rf/dispatch [:set-cart {}])
+      (rf/dispatch [:set-conversion false])
       (go (let [endpoint (str url "create-cart")
                 response (<! (http/post endpoint {:transit-params kit
                                                   :with-credentials? false}))
@@ -23,5 +24,6 @@
 
 (defn buy-cart [cart-id]
   (go (let [endpoint (str url "buy-cart")]
-        (<! (http/post endpoint {:transit-params cart-id
-                                 :with-credentials? false})))))
+        (do (rf/dispatch [:set-conversion true])
+            (<! (http/post endpoint {:transit-params cart-id
+                                     :with-credentials? false}))))))

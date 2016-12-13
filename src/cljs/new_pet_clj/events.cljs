@@ -30,5 +30,7 @@
   (fn [db [_ cart]]
     (assoc db :cart-status cart)))
 
-
-
+(rf/reg-event-db
+  :set-conversion
+  (fn [db [_ conversion]]
+    (assoc db :conversion conversion)))
