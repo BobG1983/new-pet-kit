@@ -18,9 +18,6 @@
     (let [res (handler req)
           headers (res :headers)
           max-age (filetypes (get-content-type res))]
-      (t/debug (str "Headers: " headers))
-      (t/debug (str "Max-Age: " max-age))
-      (t/debug (str "Had Cache Headers: " (has-cache-headers? res)))
       (if (or (has-cache-headers? res) (not max-age))
         res
         (response/header res http-cache-control (format "max-age=%d" max-age))))))
