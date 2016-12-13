@@ -33,15 +33,13 @@
         cart-id (:cart-id cart)
         price (:formatted-price (:sub-total cart))
         url (:purchase-url cart)]
-    (t/debug "cart-request =>" @cart-request)
-    (t/spy {:cart-id cart-id :price price :url url})))
+    {:cart-id cart-id :price price :url url}))
 
 (defn create-cart
   "Given a kit creates an Amazon cart containing
   the items in the kit and returns the url to buy it."
   [kit]
   (try (->> kit
-            (t/spy)
             (:contents)
             (map :code)
             (asin-list->item-map)
