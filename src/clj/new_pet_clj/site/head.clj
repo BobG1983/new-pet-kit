@@ -39,7 +39,6 @@
         (meta-content long-description)
         (scr/inline-script preload-polyfill)
         (scr/inline-script google-analytics)
-        (scr/inline-script facebook-analytics)
         (ico/icons apple-icon-sizes android-icon-sizes msft-icon-sizes favicon-sizes)
         (sty/stylesheets css-folder primary-sheet expanded-sheet)
         (sty/stylesheet nil font-awesome-sheet)))
