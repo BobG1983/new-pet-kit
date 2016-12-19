@@ -13,8 +13,7 @@
 
 ;; Combine routes
 ;; TODO: CSRF for the site but not the API.  It's not necessary due to site limitations but...]
-(def routes (wrap-defaults (cjr/routes api-routes site-routes (-> site-defaults
-                                                                  (assoc-in [:security :anti-forgery] false)))))
+(def routes (wrap-defaults (cjr/routes api-routes site-routes site-defaults)))
 
 ;; Production handler
 (defn weeks [x] (* x 7 24 60 60))
